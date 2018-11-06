@@ -1,8 +1,22 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Test from './Test';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { show: true };
+  }
+
+
+  componentDidMount() {
+    const unountTimeout = 50;
+    setTimeout(() => {
+      this.setState({show: false});
+    }, unountTimeout);
+  }
   render() {
     return (
       <div className="App">
@@ -19,6 +33,7 @@ class App extends Component {
           >
             Learn React
           </a>
+          {this.state.show ? <Test /> :  <div>Don't Show</div>}
         </header>
       </div>
     );
